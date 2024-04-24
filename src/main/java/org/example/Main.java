@@ -4,7 +4,7 @@ import javax.swing.border.*;
 import java.awt.*;
 
 import org.example.Vehicle;
-
+import org.example.panels.*;
 public class Main extends JFrame {
 
     JLabel title;
@@ -31,7 +31,7 @@ public class Main extends JFrame {
 
         tabbedPane = new JTabbedPane();
         tabbedPane.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 18));
-        tabbedPane.addTab("Drive Constants", null, new JPanel(), "Set constants for all vehicles.");
+        tabbedPane.addTab("Drive Constants", null, new DriveConstants(), "Set constants for all vehicles.");
         tabbedPane.addTab("Create Vehicle", null, new JPanel(), "Enter parameters for a new vehicle.");
         tabbedPane.addTab("Search Vehicles", null, new JPanel(), "View all vehicles or search for a specific one.");
         tabbedPane.addTab("Compare Vehicles", null, new JPanel(), "Compare two vehicles given their license plates.");
@@ -41,7 +41,7 @@ public class Main extends JFrame {
         title.setBounds(212, 20, 475, 75);
 
         this.add(tabbedPane);
-        tabbedPane.setBounds(110, 105, 679, 100);
+        tabbedPane.setBounds(110, 105, 679, 475);
 
 
         this.pack();
