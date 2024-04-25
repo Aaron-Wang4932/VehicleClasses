@@ -6,8 +6,6 @@ import org.example.Vehicle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -74,19 +72,19 @@ public class DriveConstants extends JPanel implements KeyListener {
 
 
         this.add(gasPricePrompt);
-        gasPricePrompt.setBounds(25, 35, 375, 40);
+        gasPricePrompt.setBounds(30, 35, 375, 40);
 
         this.add(gasPrice);
-        gasPrice.setBounds(440, 40, 200, 40);
+        gasPrice.setBounds(445, 40, 200, 40);
 
         this.add(distancePrompt);
-        distancePrompt.setBounds(25, 125, 400, 40);
+        distancePrompt.setBounds(30, 125, 400, 40);
 
         this.add(distance);
-        distance.setBounds(440, 130, 200, 40);
+        distance.setBounds(445, 130, 200, 40);
 
         this.add(output);
-        output.setBounds(25, 215, 615, 80);
+        output.setBounds(30, 215, 615, 80);
 
         this.add(submit);
         submit.setBounds(200, 335, 280, 40);
