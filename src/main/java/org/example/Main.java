@@ -8,7 +8,7 @@ import org.example.panels.*;
 public class Main extends JFrame {
 
     JLabel title;
-    JTabbedPane tabbedPane;
+    public static JTabbedPane tabbedPane;
     public Main() {
         ToolTipManager.sharedInstance().setInitialDelay(0);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,9 +32,7 @@ public class Main extends JFrame {
         tabbedPane = new JTabbedPane();
         tabbedPane.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 18));
         tabbedPane.addTab("Drive Constants", null, new DriveConstants(), "Set constants for all vehicles.");
-        tabbedPane.addTab("Create Vehicle", null, new JPanel(), "Enter parameters for a new vehicle.");
-        tabbedPane.addTab("Search Vehicles", null, new JPanel(), "View all vehicles or search for a specific one.");
-        tabbedPane.addTab("Compare Vehicles", null, new JPanel(), "Compare two vehicles given their license plates.");
+
 
 
         this.add(title);
@@ -54,5 +52,11 @@ public class Main extends JFrame {
 //        Vehicle.setDistanceKM(100);
 //        Vehicle vehicle = new Vehicle("CJKE 828", 3, 14, 0.12);
 //        System.out.println(vehicle);
+    }
+
+    public static void addTabs() {
+        tabbedPane.addTab("Create Vehicle", null, new JPanel(), "Enter parameters for a new vehicle.");
+        tabbedPane.addTab("Search Vehicles", null, new JPanel(), "View all vehicles or search for a specific one.");
+        tabbedPane.addTab("Compare Vehicles", null, new JPanel(), "Compare two vehicles given their license plates.");
     }
 }
