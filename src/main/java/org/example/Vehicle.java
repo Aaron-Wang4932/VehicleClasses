@@ -1,6 +1,9 @@
 package org.example;
 
+import java.util.ArrayList;
+
 public class Vehicle {
+    public static ArrayList<Vehicle> activeVehicles = new ArrayList<>();
     private static double gasPrice;
     private static double distanceKM;
     private final String license;
@@ -8,7 +11,7 @@ public class Vehicle {
     private final double fare;
     private final double fuelEfficiency;
 
-    Vehicle(String license, int numPassengers, double fare, double fuelEfficiency) {
+    public Vehicle(String license, int numPassengers, double fare, double fuelEfficiency) {
         this.license = license;
         this.numPassengers = numPassengers;
         this.fare = fare;
@@ -16,15 +19,17 @@ public class Vehicle {
     }
 
     private double getRevenue() {
-        return Math.round(numPassengers * fare * 100) / 100.0; // Rounded to two decimal points
+        return numPassengers * fare;
     }
 
     private double getTotalCost() {
-        return Math.round(fuelEfficiency * gasPrice * distanceKM * 100) / 100.0; // Rounded to two decimal points
+        return fuelEfficiency * gasPrice * distanceKM;
     }
 
     public double getProfit() {
-        return getRevenue() - getTotalCost();
+        double profit = getRevenue() - getTotalCost();
+        profit = Math.round(profit * 100) / 100.0;
+        return profit;
     }
 
     public static Vehicle compare(Vehicle a, Vehicle b) {
@@ -34,8 +39,8 @@ public class Vehicle {
     public String toString() {
         return "License Plate: " + getLicense() +
                 "\nPassengers: " + getNumPassengers() +
-                "\nFare Per Passenger: $" + fare +
-                "\nFuel Efficiency: " + getFuelEfficiency() + " L/kM" +
+                "\nFare Per Passenger: $" + getFare() +
+                "\nFuel Efficiency: " + getFuelEfficiency() + " L/km" +
                 "\nProfit: $" + getProfit();
     }
 
@@ -64,10 +69,17 @@ public class Vehicle {
     }
 
     public double getFare() {
-        return fare;
+        return Math.round(fare * 100) / 100.0;
     }
 
     public double getFuelEfficiency() {
         return fuelEfficiency;
+    }
+
+    public static Vehicle searchVehicles(String license) {
+        for(Vehicle v : activeVehicles) {
+            if(v.getLicense().equals(license)) return v;
+        }
+        return null;
     }
 }

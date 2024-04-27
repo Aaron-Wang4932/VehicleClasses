@@ -3,11 +3,15 @@ import javax.swing.*;
 import javax.swing.border.*;
 import java.awt.*;
 
-import org.example.Vehicle;
 import org.example.panels.*;
 public class Main extends JFrame {
 
     JLabel title;
+    static DriveConstants driveConstants = new DriveConstants();
+    static CreateVehicle createVehicle = new CreateVehicle();
+    static SearchVehicle searchVehicle = new SearchVehicle();
+    static CompareVehicles compareVehicles = new CompareVehicles();
+
     public static JTabbedPane tabbedPane;
     public Main() {
         ToolTipManager.sharedInstance().setInitialDelay(0);
@@ -31,7 +35,7 @@ public class Main extends JFrame {
 
         tabbedPane = new JTabbedPane();
         tabbedPane.setFont(new Font("Century Gothic", Font.BOLD | Font.ITALIC, 18));
-        tabbedPane.addTab("Drive Constants", null, new DriveConstants(), "Set constants for all vehicles.");
+        tabbedPane.addTab("Drive Constants", null, driveConstants, "Set constants for all vehicles.");
 
 
 
@@ -48,15 +52,11 @@ public class Main extends JFrame {
     }
     public static void main(String[] args) {
         new Main();
-//        Vehicle.setGasPrice(1.69);
-//        Vehicle.setDistanceKM(100);
-//        Vehicle vehicle = new Vehicle("CJKE 828", 3, 14, 0.12);
-//        System.out.println(vehicle);
     }
 
     public static void addTabs() {
-        tabbedPane.addTab("Create Vehicle", null, new JPanel(), "Enter parameters for a new vehicle.");
-        tabbedPane.addTab("Search Vehicles", null, new JPanel(), "View all vehicles or search for a specific one.");
-        tabbedPane.addTab("Compare Vehicles", null, new JPanel(), "Compare two vehicles given their license plates.");
+        tabbedPane.addTab("Create Vehicle", null, createVehicle, "Enter parameters for a new vehicle.");
+        tabbedPane.addTab("Search Vehicles", null, searchVehicle, "View all vehicles or search for a specific one.");
+        tabbedPane.addTab("Compare Vehicles", null, compareVehicles, "Compare two vehicles given their license plates.");
     }
 }

@@ -55,6 +55,10 @@ public class DriveConstants extends JPanel implements KeyListener {
                 output.setText("Ensure that your input is numeric.");
                 return;
             }
+
+            Vehicle.setGasPrice(Double.parseDouble(gasPrice.getText()));
+            Vehicle.setDistanceKM(Double.parseDouble(distance.getText()));
+
             output.setText("Your constants have been set.");
             if(Main.tabbedPane.getTabCount() == 1) {
                 int l = output.getText().length();
@@ -62,32 +66,27 @@ public class DriveConstants extends JPanel implements KeyListener {
                 Main.addTabs();
             }
 
-            Vehicle.setGasPrice(Double.parseDouble(gasPrice.getText()));
-            Vehicle.setDistanceKM(Double.parseDouble(distance.getText()));
-
-
-
 
         });
 
 
         this.add(gasPricePrompt);
-        gasPricePrompt.setBounds(30, 35, 375, 40);
+        gasPricePrompt.setBounds(30, 30, 375, 40);
 
         this.add(gasPrice);
-        gasPrice.setBounds(445, 40, 200, 40);
+        gasPrice.setBounds(445, 30, 200, 40);
 
         this.add(distancePrompt);
-        distancePrompt.setBounds(30, 125, 400, 40);
+        distancePrompt.setBounds(30, 120, 400, 40);
 
         this.add(distance);
-        distance.setBounds(445, 130, 200, 40);
+        distance.setBounds(445, 120, 200, 40);
 
         this.add(output);
-        output.setBounds(30, 215, 615, 80);
+        output.setBounds(30, 210, 615, 80);
 
         this.add(submit);
-        submit.setBounds(200, 335, 280, 40);
+        submit.setBounds(200, 330, 280, 40);
 
     }
 
@@ -103,9 +102,6 @@ public class DriveConstants extends JPanel implements KeyListener {
             ((JTextField)e.getSource()).setText("");
         }
     }
-
-
-
 
 
     public void keyPressed(KeyEvent e) {
